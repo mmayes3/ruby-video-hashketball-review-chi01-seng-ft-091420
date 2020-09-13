@@ -1,5 +1,5 @@
 # Write your code below game_hash
-
+require 'pry'
 def game_hash
   {
     home: {
@@ -140,12 +140,10 @@ end
 
 def num_points_scored(p1)
   players.each do |index|
-    if index[:player_name] == p1
-      return index[:points]
-    end
+    return index[p1][:number]
   end
+  binding.pry
 end
-
 def shoe_size(p1)
   players.each do |index|
     if index[:player_name] == p1
@@ -222,3 +220,5 @@ def team_names
   team_name_array.push(game_hash[:home][:team_name], game_hash[:away][:team_name])
   return team_name_array
 end 
+
+puts num_points_scored("Kemba Walker")
